@@ -26,8 +26,8 @@ using namespace std;
         if (*(arr + i) > maxVal) {
             maxVal = *(arr + i);
         }
-    
-        return maxVal; }
+    }
+        return maxVal; 
  }
  
      //4.
