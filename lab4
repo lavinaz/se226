@@ -1,0 +1,60 @@
+num= int(input("Enter number of users: "))
+Dict={}
+for i in range(num):
+    name = input("Enter username: ")
+    n= int(input("How many items? "))
+    values= []
+    for v in range(n):
+        val = input("Item " +str(v+1) + ": ")
+        values.append(val)
+
+    Dict.update({name:values})
+
+print("USER DATA:")
+
+
+for key in Dict:
+
+    print(key,"-> ", Dict[key]  )
+
+allitems =[]
+for key in Dict:
+
+    for val in Dict[key]:
+        allitems.append(val)
+
+uniquename=set(allitems) # for no dupes
+commitems=[] # for func COMMON
+onlyitems=[] # for func  UNIQUE
+counts = {}  # for func MOST POPULAR
+
+for val in uniquename:
+    c =allitems.count(val)
+
+    counts.update({val: c}) #adding to dictt
+
+    if c>1:
+        commitems.append(val)
+    else:
+        onlyitems.append(val)
+
+print(" COMMON ITEMS:" )
+for val in commitems:
+    print(val)
+
+print("UNIQUE ITEMS :")
+
+for val in onlyitems:
+
+    print(val)
+
+
+print(" MOST POPULAR  ITEM: ")
+maxc=0
+popular=0
+for key in counts:
+    if counts[key]> maxc: #dictionry trasing to find maxc
+        maxc= counts[key]
+        popular =key
+
+print(popular)
