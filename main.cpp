@@ -1,0 +1,42 @@
+
+//lab 5 c++ part
+
+
+//Q1
+
+
+#include <iostream>
+using namespace std;
+
+double globalresult = 0;//same w python
+
+double power(double base, int top) //pow func bcz no math func are allowed
+{ double rez = 1;
+    for(int i =0;i <top;i++) {
+        rez *=base;
+    }
+    return rez;
+}
+
+void result(int n, double r) {
+    if (n< 0) {return;}
+    else
+    { globalresult = globalresult+power(r,n );
+        result(n - 1, r);  //the recursive part till 0
+    }
+}
+int main(){
+    int n ;
+    double r;
+
+    cout<<" Enter n:";
+    cin>>n;
+
+    cout<< "Enter r:";
+    cin>>r;
+
+    result(n, r);//running the func
+    cout<< "Total Result: " <<globalresult<< endl;
+
+    return  0;
+}
